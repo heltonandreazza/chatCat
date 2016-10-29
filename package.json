@@ -21,6 +21,7 @@
   "homepage": "https://github.com/heltonandreazza/eConBack#readme",
   "dependencies": {
     "ejs": "^2.3.4",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "mongoose": "^4.3.1"
   }
 }
