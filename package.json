@@ -1,0 +1,25 @@
+{
+  "name": "chatcat",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heltonandreazza/eConBack.git"
+  },
+  "author": "helton.andreazza",
+  "license": "ISC",
+  "engines": {
+    "node": "4.2.2"
+  },
+  "bugs": {
+    "url": "https://github.com/heltonandreazza/eConBack/issues"
+  },
+  "homepage": "https://github.com/heltonandreazza/eConBack#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
