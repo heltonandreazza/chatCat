@@ -1,6 +1,7 @@
 'use strict';
 const express = require('express');
 const app = express();
+const passport = require('passport');
 //my modules
 const chatCat = require('./app');
 
@@ -9,6 +10,8 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs'); //automatic import by express
 
 app.use(chatCat.session);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', chatCat.router);
 

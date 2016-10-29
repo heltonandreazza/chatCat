@@ -11,5 +11,15 @@
             "displayName",
             "photos"
         ]
+    },
+    "twitter": {
+        "consumerKey": "anvUBg3oaZrUkEtvv2irlDEKY",
+        "consumerSecret": "hvKATL7zyRMTWuK27vHrgaS2KcL1LM6pWF4SXK147g8AKCnt6C",
+        "callbackURL": "//localhost:3000/auth/twitter/callback",
+        "profileFields": [
+            "id",
+            "displayName",
+            "photos"
+        ]
     }
 }

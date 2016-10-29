@@ -14,9 +14,11 @@
             <h1>ChatCAT | Select or Create a Chatroom</h1>
         </div>
         <div class="controls">
-            <div class="userPicHolder"><img src="/img/user.jpg" alt="John Doe"></div>
-            <p class="userName">John Doe</p>
-            <a href="login.htm" id="logOutBtn">Logout</a>
+            <div class="userPicHolder"><img src="<%= user.profilePic %>" alt="<%= user.fullName %>"></div>
+            <p class="userName">
+                <%= user.fullName %>
+            </p>
+            <a href="/logout" id="logOutBtn">Logout</a>
         </div>
         <div class="controls">
             <input type="text" name="roomName" placeholder="Create a new Chatroom">
@@ -25,10 +27,10 @@
         <div class="roomsListDiv">
             <ul class="roomsList" id="roomsListUL">
                 <!-- Loop list items here -->
-                <a href="chatroom.htm">
+                <a href="chat">
                     <li>World Cuisine</li>
                 </a>
-                <a href="chatroom.htm">
+                <a href="chat">
                     <li>Coffee and Conversations</li>
                 </a>
                 <!-- Loop ends -->
