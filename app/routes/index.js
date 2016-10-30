@@ -15,10 +15,23 @@ module.exports = () => {
                     host: config.host
                 });
             }],
-            '/chat': [h.isAuthenticated, (req, res, next) => {
-                res.render('chatroom', {
-                    user: req.user
-                });
+            '/chat/:id': [h.isAuthenticated, (req, res, next) => {
+                // find a chatroom with the given id
+                // render it if the id is found
+                let getRoom = h.findRoomById(req.app.locals.chatrooms, req.params.id);
+
+                if (getRoom === undefined) {
+                    //if doesn't find room ignore the rest of the code and go next 
+                    return next();
+                } else {
+                    res.render('chatroom', {
+                        user: req.user,
+                        host: config.host,
+                        room: getRoom.room,
+                        roomID: getRoom.roomID
+                    });
+                }
+
             }],
             '/auth/facebook': passport.authenticate('facebook'),
             '/auth/facebook/callback': passport.authenticate('facebook', {

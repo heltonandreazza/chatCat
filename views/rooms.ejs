@@ -2,18 +2,20 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>ChatCat - Rooms</title>
-	<link rel="stylesheet" href="/css/roomsStyles.css">
-	<script src="/js/jquery-2.1.4.min.js"></script>
-	<!--ROUTE SOCKETIO AUTO CREATED-->
-	<script src="/socket.io/socket.io.js"></script>
-	<!--<script src="babel.min.js"></script>-->
-	<script>
+    <meta charset="UTF-8">
+    <title>ChatCat - Rooms</title>
+    <link rel="stylesheet" href="/css/roomsStyles.css">
+    <script src="/js/jquery-2.1.4.min.js"></script>
+    <!--ROUTE SOCKETIO AUTO CREATED-->
+    <script src="/socket.io/socket.io.js"></script>
+    <!--<script src="babel.min.js"></script>-->
+    <script>
         'use strict';
         $(() => {
             //roomslist is not a route, is a socket namespace
             let socket = io('<%= host %>' + '/roomslist');
+            let newRoomInput = $("input[name='roomName']");
+
             //code above handshake socket to io server, see the workflow
             socket.on('connect', () => console.log('connected to server'));
 
@@ -36,36 +38,44 @@
             socket.on('chatRoomsList', chatrooms => {
                 renderChatRooms(JSON.parse(chatrooms));
             })
+
+            $('#createBtn').on('click', () => {
+                console.log(newRoomInput.val());
+                if (newRoomInput.val() !== '') {
+                    socket.emit('createNewRoom', newRoomInput.val());
+                    newRoomInput.val('');
+                }
+            })
         });
     </script>
 </head>
 
 <body>
-	<div class="container">
-		<div class="titlePanel">
-			<h1>ChatCAT | Select or Create a Chatroom</h1>
-		</div>
-		<div class="controls">
-			<div class="userPicHolder"><img src="<%= user.profilePic %>" alt="<%= user.fullName %>"></div>
-			<p class="userName">
-				<%= user.fullName %>
-			</p>
-			<a href="/logout" id="logOutBtn">Logout</a>
-		</div>
-		<div class="controls">
-			<input type="text" name="roomName" placeholder="Create a new Chatroom">
-			<a href="#" id="createBtn">Create</a>
-		</div>
-		<div class="roomsListDiv">
-			<ul class="roomsList" id="roomsListUL">
-				<!-- Loop list items here -->
-				<a href="chat">
-					<li>Coffee and Conversations</li>
-				</a>
-				<!-- Loop ends -->
-			</ul>
-		</div>
-	</div>
+    <div class="container">
+        <div class="titlePanel">
+            <h1>ChatCAT | Select or Create a Chatroom</h1>
+        </div>
+        <div class="controls">
+            <div class="userPicHolder"><img src="<%= user.profilePic %>" alt="<%= user.fullName %>"></div>
+            <p class="userName">
+                <%= user.fullName %>
+            </p>
+            <a href="/logout" id="logOutBtn">Logout</a>
+        </div>
+        <div class="controls">
+            <input type="text" name="roomName" placeholder="Create a new Chatroom">
+            <a href="#" id="createBtn">Create</a>
+        </div>
+        <div class="roomsListDiv">
+            <ul class="roomsList" id="roomsListUL">
+                <!-- Loop list items here -->
+                <a href="chat">
+                    <li>Coffee and Conversations</li>
+                </a>
+                <!-- Loop ends -->
+            </ul>
+        </div>
+    </div>
 </body>
 
 </html>
