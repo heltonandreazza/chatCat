@@ -14,9 +14,11 @@
             <h1>ChatCAT | Topic Goes Here</h1>
         </div>
         <div class="controls">
-            <div class="userPicHolder"><img src="/img/user.jpg" alt="John Doe"></div>
-            <p class="userName">John Doe</p>
-            <a href="rooms.htm" id="roomsBtn">Rooms</a>
+            <div class="userPicHolder"><img src="<%= user.profilePic %>" alt="<%= user.fullName %>"></div>
+            <p class="userName">
+                <%= user.fullName %>
+            </p>
+            <a href="/rooms" id="roomsBtn">Rooms</a>
             <a href="/logout" id="logOutBtn">Logout</a>
         </div>
         <div class="chatListDiv">
