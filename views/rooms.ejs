@@ -17,7 +17,7 @@
             let newRoomInput = $("input[name='roomName']");
 
             //code above handshake socket to io server, see the workflow
-            socket.on('connect', () => console.log('connected to server'));
+            socket.on('connect', () => console.log('connected to server /roomslist'));
 
             //using jquery to append chatrooms html from array
             let renderChatRooms = chatrooms => {
