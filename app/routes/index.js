@@ -1,6 +1,7 @@
 'use strict';
-const help = require('../helper');
+const h = require('../helpers');
 const passport = require('passport');
+const config = require('../config');
 
 module.exports = () => {
     let routes = {
@@ -8,12 +9,13 @@ module.exports = () => {
             '/': (req, res, next) => {
                 res.render('login');
             },
-            '/rooms': [help.isAuthenticated, (req, res, next) => {
+            '/rooms': [h.isAuthenticated, (req, res, next) => {
                 res.render('rooms', {
-                    user: req.user
+                    user: req.user,
+                    host: config.host
                 });
             }],
-            '/chat': [help.isAuthenticated, (req, res, next) => {
+            '/chat': [h.isAuthenticated, (req, res, next) => {
                 res.render('chatroom', {
                     user: req.user
                 });
@@ -41,5 +43,5 @@ module.exports = () => {
         }
     }
 
-    return help.route(routes);
+    return h.route(routes);
 }
