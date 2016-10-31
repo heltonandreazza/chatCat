@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'production') {
             profileFields: ['id', 'displayName', 'photos']
         },
         redis: {
-            host: redisIRU.hostname,
+            host: redisURI.hostname,
             port: redisURI.port,
             password: redisPassword
         }
