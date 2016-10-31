@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 const passport = require('passport');
 const config = require('../config');
 const logger = require('../logger');
@@ -15,7 +15,7 @@ module.exports = () => {
         //find  the user using the _id
         h.findById(id)
             .then(user => done(null, user))
-            .catch(error => logger.log('error','Error when deserializing the user ' + error))
+            .catch(error => logger.log('error', 'Error when deserializing the user ' + error))
     })
 
     let authProcessor = (accesToken, refreshToken, profile, done) => {
@@ -30,7 +30,7 @@ module.exports = () => {
                     //create a new user and return
                     h.createNewUser(profile)
                         .the(newChatUser => done(null, newChatUser))
-                        .catch(error => logger.log('error','Error when creating new user' + error))
+                        .catch(error => logger.log('error', 'Error when creating new user' + error))
                 }
             });
     }
