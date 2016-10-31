@@ -1,3 +1,6 @@
+# dev.json
+app/config/development.json
+
 logs/*
 .gulp/*
 dist/
