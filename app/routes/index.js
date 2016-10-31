@@ -1,4 +1,5 @@
 'use strict';
+
 const h = require('../helpers');
 const passport = require('passport');
 const config = require('../config');
