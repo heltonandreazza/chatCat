@@ -1,6 +1,7 @@
 'use strict';
 const passport = require('passport');
 const config = require('../config');
+const logger = require('../logger');
 const h = require('../helpers');
 const FacebookStrategy = require('passport-facebook').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
@@ -14,7 +15,7 @@ module.exports = () => {
         //find  the user using the _id
         h.findById(id)
             .then(user => done(null, user))
-            .catch(error => console.log('Error when deserializing the user'))
+            .catch(error => logger.log('error','Error when deserializing the user ' + error))
     })
 
     let authProcessor = (accesToken, refreshToken, profile, done) => {
@@ -29,7 +30,7 @@ module.exports = () => {
                     //create a new user and return
                     h.createNewUser(profile)
                         .the(newChatUser => done(null, newChatUser))
-                        .catch(error => console.log('Error when creating new user'))
+                        .catch(error => logger.log('error','Error when creating new user' + error))
                 }
             });
     }
