@@ -15,7 +15,9 @@
         'use strict';
         $(() => {
             //roomslist is not a route, is a socket namespace
-            let socket = io('<%= host %>' + '/chatter');
+            let socket = io('<%= host %>' + '/chatter', {
+                transports: ['websocket']
+            });
 
             let roomID = '<%= roomID %>';
             let user = '<%= user.fullName %>';
@@ -106,7 +108,7 @@
                             message: tmp
                         });
 
-                    } else { 
+                    } else {
                         console.log(error);
                     }
                 });

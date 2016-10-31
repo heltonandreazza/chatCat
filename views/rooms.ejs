@@ -13,7 +13,9 @@
         'use strict';
         $(() => {
             //roomslist is not a route, is a socket namespace
-            let socket = io('<%= host %>' + '/roomslist');
+            let socket = io('<%= host %>' + '/roomslist', {
+                transports: ['websocket']
+            });
             let newRoomInput = $("input[name='roomName']");
 
             //code above handshake socket to io server, see the workflow
