@@ -5,7 +5,7 @@
     "fb": {
         "clientID": "381810835483373",
         "clientSecret": "30718d573774c66a18770da52c4ff0d0",
-        "callbackURL": "//chat-cat-app-helton.com/auth/facebook/callback",
+        "callbackURL": "//localhost:3000/auth/facebook/callback",
         "profileFields": [
             "id",
             "displayName",
@@ -15,7 +15,7 @@
     "twitter": {
         "consumerKey": "anvUBg3oaZrUkEtvv2irlDEKY",
         "consumerSecret": "hvKATL7zyRMTWuK27vHrgaS2KcL1LM6pWF4SXK147g8AKCnt6C",
-        "callbackURL": "//chat-cat-app-helton.com/auth/twitter/callback",
+        "callbackURL": "//localhost:3000/auth/twitter/callback",
         "profileFields": [
             "id",
             "displayName",
