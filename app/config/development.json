@@ -6,6 +6,7 @@
         "clientID": "381810835483373",
         "clientSecret": "30718d573774c66a18770da52c4ff0d0",
         "callbackURL": "//localhost:3000/auth/facebook/callback",
+        "redirect_url": "//chat-cat-app-helton.herokuapp.com",
         "profileFields": [
             "id",
             "displayName",
